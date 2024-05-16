@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px 200px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  backdrop-filter: blur(3.5px);
+  &__nav {
+    ul {
+      list-style: none;
+      color: black;
+      display: flex;
+
+      align-items: center;
+      gap: 30px;
+      li {
+        font-size: 18px;
+        .nav_item {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  }
+}
