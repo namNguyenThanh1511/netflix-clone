@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar } from "swiper/modules";
+import { Navigation, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
+import "swiper/css/navigation";
 import axios from "axios";
-import { Image } from "antd";
-function Carousel({ numberOfSlide, category }) {
+
+function Carousel({ numberOfSlide, category, isUseNavigation = false, title }) {
+  //isUseNavigation = false : default value
   //Props
   const [movieList, setMovieList] = useState([]);
   const fetchMovie = async () => {
@@ -18,21 +20,23 @@ function Carousel({ numberOfSlide, category }) {
     fetchMovie();
   }, []);
   return (
-    <div className="carousel">
+    <div className={`carousel ${numberOfSlide > 1 ? "multi-item" : ""}`}>
+      {/* chỉ show title khi và chỉ khi có title => nếu title === null => ko show title*/}
+      {title && <h1>{title}</h1>}
       <Swiper
-        spaceBetween={30}
+        navigation={isUseNavigation}
+        spaceBetween={20}
         slidesPerView={numberOfSlide}
         scrollbar={{
           hide: true,
         }}
-        modules={[Scrollbar]}
-        className="carousel"
+        modules={[Scrollbar, Navigation]}
       >
         {/*each movies => Swiper Slide*/}
         {/*each movies inside movieList => Swiper Slide*/}
         {movieList
           .filter((movie) => movie.category === category)
-          .map((movie) => ( 
+          .map((movie) => (
             <SwiperSlide key={movie.id}>
               <img className="carousel__img" src={movie.poster_path} alt="" />
             </SwiperSlide>

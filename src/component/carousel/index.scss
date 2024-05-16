@@ -5,4 +5,17 @@
     object-fit: cover;
     object-position: top;
   }
+  &.multi-item {
+    // have class both "carousel multi-item";
+    padding: 20px 0px;
+    color: white;
+    img {
+      width: 100%;
+      height: 200px;
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.5s;
+      }
+    }
+  }
 }
