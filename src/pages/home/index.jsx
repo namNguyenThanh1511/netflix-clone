@@ -10,7 +10,7 @@ function HomePage() {
       <Carousel numberOfSlide={1} category={"Trending"} />
 
       <Carousel numberOfSlide={6} category={"Horror"} isUseNavigation={true} title="Horror movie" />
-      <Carousel numberOfSlide={6} category={"Comedy"} isUseNavigation={true} />
+      <Carousel numberOfSlide={6} category={"Comedy"} isUseNavigation={true} title="Comedy" />
     </div>
   );
 }
