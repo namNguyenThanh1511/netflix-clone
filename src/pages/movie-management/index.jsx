@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { useForm } from "antd/es/form/Form";
 import uploadFile from "../../utils/upload";
+import "./index.scss";
 function MovieManagement() {
   const [form] = useForm();
   const [dataSource, setDataSource] = useState([]);
@@ -25,6 +26,16 @@ function MovieManagement() {
       title: "Category",
       dataIndex: "category",
       key: "category",
+    },
+    {
+      title: "Actions",
+      dataIndex: "id",
+      key: "id",
+      render: () => (
+        <Button type="primary" danger>
+          Delete
+        </Button>
+      ),
     },
   ];
   const [previewOpen, setPreviewOpen] = useState(false);
@@ -105,7 +116,7 @@ function MovieManagement() {
   }, []);
 
   return (
-    <div>
+    <div className="movie-management">
       <Button type="primary" onClick={handleShowModal}>
         Add new movie
       </Button>

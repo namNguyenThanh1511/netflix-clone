@@ -1,0 +1,27 @@
+Sử dụng Outlet cho việc kế thừa 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />, children sẽ kế thừa mọi component bên trong Layout
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+        {
+          path: "/movie-management",
+          element: <MovieManagement />,
+        },
+      ],
+    },
+  ]);
+  ---> Note : Gắn Outlet vào cuối dòng trong lúc return của component Layout
+  
+function Layout() {
+  return (
+    <div>
+      <Header />
+      <Outlet />
+    </div>
+  );
+}
