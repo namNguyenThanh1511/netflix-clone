@@ -1,4 +1,4 @@
-import { Button, Form, Image, Input, Modal, Select, Table, Upload } from "antd";
+import { Button, Form, Image, Input, Modal, Popconfirm, Select, Table, Upload } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
@@ -9,6 +9,12 @@ function MovieManagement() {
   const [form] = useForm();
   const [dataSource, setDataSource] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const handleDeleteMovie = async (id) => {
+    console.log("delete movie ", id);
+    const response = await axios.delete(`https://6627a8d5b625bf088c092ecf.mockapi.io/Movie/${id}`);
+    console.log(response);
+    setDataSource(dataSource.filter((movie) => movie.id !== id));
+  };
   const columns = [
     {
       title: "Name",
@@ -30,11 +36,21 @@ function MovieManagement() {
     {
       title: "Actions",
       dataIndex: "id",
-      key: "id",
-      render: () => (
-        <Button type="primary" danger>
-          Delete
-        </Button>
+      key: "id", // dung de truyen tham so
+      render: (id) => (
+        <Popconfirm
+          title="Delete the movie"
+          description="Are you sure to delete this movie?"
+          onConfirm={() => {
+            handleDeleteMovie(id);
+          }}
+          okText="Yes"
+          cancelText="No"
+        >
+          <Button type="primary" danger>
+            Delete
+          </Button>
+        </Popconfirm>
       ),
     },
   ];

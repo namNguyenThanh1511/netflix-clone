@@ -25,3 +25,6 @@ function Layout() {
     </div>
   );
 }
+
+- Redux : global state 
+- useState : internal

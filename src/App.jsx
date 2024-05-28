@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MovieManagement from "./pages/movie-management";
 import HomePage from "./pages/home";
 import Layout from "./component/layout";
+import Login from "./pages/login";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ function App() {
           element: <MovieManagement />,
         },
       ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
   ]);
   return <RouterProvider router={router} />;
