@@ -50,4 +50,35 @@
     height: 100%;
     transform: scale(1.4);
   }
+  &__form {
+    button {
+      padding: 20px 10px;
+      border: none;
+      border-radius: 2px;
+      font-size: 1rem;
+    }
+    &__btnLogin {
+      background-color: #e50914;
+
+      color: #fff;
+      &__link {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    &__btnGoogle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      border: none;
+      transition: all 1.5s;
+
+      &:hover {
+        background: rgb(221, 74, 183);
+        background: linear-gradient(180deg, rgba(221, 74, 183, 0.9245283018867925) 37%, rgba(192, 197, 204, 1) 100%);
+      }
+    }
+  }
 }

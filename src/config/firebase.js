@@ -1,5 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
+
 import { getStorage } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -7,17 +9,19 @@ import { getStorage } from "firebase/storage";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBxyQJq9EWUmjYu6sPvUEsYEd_eLqNrDCk",
-  authDomain: "netflix-clone-d6287.firebaseapp.com",
-  projectId: "netflix-clone-d6287",
-  storageBucket: "netflix-clone-d6287.appspot.com",
-  messagingSenderId: "927108850938",
-  appId: "1:927108850938:web:b95125333d87a21faf1543",
-  measurementId: "G-E03RS6L56L",
+  apiKey: "AIzaSyCXB5FZ8xFLY0efULdrdOhY-LKRiOzpG3E",
+  authDomain: "netflix-clone1-59e95.firebaseapp.com",
+  projectId: "netflix-clone1-59e95",
+  storageBucket: "netflix-clone1-59e95.appspot.com",
+  messagingSenderId: "325300113023",
+  appId: "1:325300113023:web:8cc78d5657841a2fb8f94a",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
-export { storage };
+const googleProvider = new GoogleAuthProvider();
+const auth = getAuth();
+
+export { storage, googleProvider, auth };
